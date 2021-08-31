@@ -11,6 +11,7 @@ DAY_BEFORE = date_before1.strftime('%Y-%m-%d')
 
 my_email = YOUR EMAIL
 my_password = YOUR PASSWORD
+destination_email = EMAIL
 
 STOCK_NAME = INTERESTED STOCK NAME
 COMPANY_NAME = "STOCK (COUNTRY - STOCK EXCHANGE)"
@@ -61,5 +62,5 @@ if percent_diff > 0.01:
         connection = smtplib.SMTP("smtp.gmail.com")
         connection.starttls()
         connection.login(user=my_email, password=my_password)
-        connection.sendmail(from_addr=my_email, to_addrs=my_email,
+        connection.sendmail(from_addr=my_email, to_addrs=destination_email,
                             msg=f"Subject:STOCK_NAME changes by {percent_diff}!!\n\n{descriptions[i]}\n{link[i]}")
